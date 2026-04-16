@@ -68,6 +68,13 @@ public class TodoRepositoryImpl implements TodoRepository{
 
     @Override
     public void complete(String date, int index) {
-
+        // 해당 날짜의 리스트 갖고 오기
+        List<Todo> list = todoMap.get(date);
+        // 리스트가 비어 있는지 index가 존재하는지 확인
+        if (list == null) return;
+        if (index < 0 || index >= list.size());
+        // 완료로 변경
+        list.get(index).setCompleted(true);
+        // list.get(index).setCompleted(! list.get(index).isCompleted());
     }
 }

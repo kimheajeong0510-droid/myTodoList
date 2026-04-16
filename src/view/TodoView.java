@@ -136,7 +136,6 @@ public class TodoView {
 
         // todoService.completeTodo 호출
         todoService.completeTodo(date,index);
-        System.out.println("[TodoService.completeTodo()]");
         System.out.println("완료 처리 완료!");
     }
 
