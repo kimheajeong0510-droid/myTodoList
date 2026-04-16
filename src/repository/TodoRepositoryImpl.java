@@ -28,12 +28,17 @@ public class TodoRepositoryImpl implements TodoRepository{
 
     @Override
     public List<Todo> findByDate(String date) {
-        return List.of();
+        if (!todoMap.containsKey(date)){
+            // map을 key로 열어봤을 때 리스트가 없는 경우
+            // 빈 리스트 생성 후 리턴
+            return new ArrayList<>();
+        }
+        return todoMap.get(date);
     }
 
     @Override
     public Map<String, List<Todo>> findAll() {
-        return Map.of();
+        return todoMap;
     }
 
     @Override
