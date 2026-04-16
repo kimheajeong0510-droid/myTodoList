@@ -117,7 +117,6 @@ public class TodoView {
 
         // todoService.deleteTodo 호출
         todoService.deleteTodo(date,index);
-        System.out.println("[TodoService.deleteTodo()]");
         System.out.println("삭제 완료!");
     }
 

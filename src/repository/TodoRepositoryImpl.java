@@ -48,7 +48,22 @@ public class TodoRepositoryImpl implements TodoRepository{
 
     @Override
     public void delete(String date, int index) {
-
+        // 날짜에 해당하는 할 일 리스트 얻어옴
+        List<Todo> list = todoMap.get(date);
+        // 해당 날짜에 리스트가 비어 있는 확인 비어있으면 return
+        if (list == null){
+            return;
+        }
+        // 삭제 할 index가 범위 안에 있는지 확인
+        if (index < 0 || index >= list.size()){
+            return;
+        }
+        // 리스트에서 받는 index 번호를 삭제
+        list.remove(index);
+        // 삭제 후에 리스트가 비어 있으면 Map도 뺌
+        if (list.isEmpty()){
+            todoMap.remove(date);
+        }
     }
 
     @Override
