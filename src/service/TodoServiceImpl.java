@@ -38,7 +38,10 @@ public class TodoServiceImpl implements TodoService{
 
     @Override
     public void updateTodo(String date, int index, String time, String task) {
-
+        List<Todo> list = todoRepository.findByDate(date);
+        if (index < 0 || index >= list.size()) return;
+        Todo todo = new Todo(time,task,list.get(index).isCompleted());
+        todoRepository.update(date,index,todo);
     }
 
     @Override

@@ -43,7 +43,8 @@ public class TodoRepositoryImpl implements TodoRepository{
 
     @Override
     public void update(String date, int index, Todo todo) {
-
+         List<Todo> list = todoMap.get(date);
+         list.set(index,todo); // list의 수정은 set()으로
     }
 
     @Override
